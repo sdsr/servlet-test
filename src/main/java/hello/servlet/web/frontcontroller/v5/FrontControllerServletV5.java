@@ -29,24 +29,28 @@ public class FrontControllerServletV5 extends HttpServlet {
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
 
     public FrontControllerServletV5() {
-        initHandlerMappingMap();
-        initHandlerAdapters();
+//        initHandlerMappingMap();
+//        initHandlerAdapters();
+        HandlerConfig handlerConfig = new HandlerConfig();
+
+        handlerConfig.initHandlerMappingMap(handlerMappingMap);
+        handlerConfig.initHandlerAdapters(handlerAdapters);
     }
 
-    private void initHandlerMappingMap() {
-        handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
-        handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
-        handlerMappingMap.put("/front-controller/v5/v3/members", new MemberListControllerV3());
-
-        handlerMappingMap.put("/front-controller/v5/v4/members/new-form", new MemberFormControllerV4());
-        handlerMappingMap.put("/front-controller/v5/v4/members/save", new MemberSaveControllerV4());
-        handlerMappingMap.put("/front-controller/v5/v4/members", new MemberListControllerV4());
-    }
-
-    private void initHandlerAdapters() {
-        handlerAdapters.add(new ControllerV3HandlerAdapter());
-        handlerAdapters.add(new ControllerV4HandlerAdapter());
-    }
+//    private void initHandlerMappingMap() {
+//        handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
+//        handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
+//        handlerMappingMap.put("/front-controller/v5/v3/members", new MemberListControllerV3());
+//
+//        handlerMappingMap.put("/front-controller/v5/v4/members/new-form", new MemberFormControllerV4());
+//        handlerMappingMap.put("/front-controller/v5/v4/members/save", new MemberSaveControllerV4());
+//        handlerMappingMap.put("/front-controller/v5/v4/members", new MemberListControllerV4());
+//    }
+//
+//    private void initHandlerAdapters() {
+//        handlerAdapters.add(new ControllerV3HandlerAdapter());
+//        handlerAdapters.add(new ControllerV4HandlerAdapter());
+//    }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
